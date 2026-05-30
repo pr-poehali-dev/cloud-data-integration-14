@@ -10,9 +10,9 @@ const pets = [
     tags: ["Корм", "Наполнитель", "Здоровье", "Привычки"],
     desc: "Подберём идеальный рацион, поможем с выбором наполнителя и будем следить за самочувствием вашей кошки.",
     tip: "Кошки — существа привычки. Я помогу выстроить спокойный ритм ухода.",
-    bg: "from-amber-50 to-orange-50",
-    border: "border-amber-200",
-    accent: "bg-amber-500",
+    bg: "from-[#fff8f0] to-[#fff2e0]",
+    border: "border-[#FFC880]/40",
+    accent: "bg-[#FF9100]",
   },
   {
     id: "dog",
@@ -21,9 +21,9 @@ const pets = [
     tags: ["Рацион", "Прогулки", "Поведение", "Прививки"],
     desc: "Следим за режимом питания, активностью и поведением. Курсы коррекции и напоминания о прививках — всё в одном месте.",
     tip: "Собакам важен режим. Давайте вместе выстроим понятный распорядок дня!",
-    bg: "from-blue-50 to-indigo-50",
-    border: "border-blue-200",
-    accent: "bg-blue-500",
+    bg: "from-[#f7f0ff] to-[#ede0ff]",
+    border: "border-[#9D4EDD]/30",
+    accent: "bg-[#5A189A]",
   },
 ];
 
@@ -41,8 +41,8 @@ export default function Featured() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <p className="text-[hsl(var(--brand-warm))] text-sm font-semibold uppercase tracking-widest mb-4">Шаг первый</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[hsl(var(--brand-dark))] text-balance">
+          <p className="text-[#5A189A] text-sm font-semibold uppercase tracking-widest mb-4">Шаг первый</p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#3C096C] text-balance">
             Начнём с вашего питомца
           </h2>
         </motion.div>
@@ -63,14 +63,14 @@ export default function Featured() {
               }`}
             >
               {selected === pet.id && (
-                <div className="absolute top-4 right-4 w-6 h-6 bg-[hsl(var(--brand-warm))] rounded-full flex items-center justify-center">
+                <div className="absolute top-4 right-4 w-6 h-6 bg-[#FF9100] rounded-full flex items-center justify-center">
                   <Icon name="Check" size={12} className="text-white" />
                 </div>
               )}
 
               <div className="text-6xl mb-6">{pet.emoji}</div>
 
-              <h3 className="text-2xl md:text-3xl font-bold text-[hsl(var(--brand-dark))] mb-3">
+              <h3 className="text-2xl md:text-3xl font-bold text-[#3C096C] mb-3">
                 {pet.name}
               </h3>
 
@@ -78,14 +78,14 @@ export default function Featured() {
                 {pet.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="bg-white/70 text-[hsl(var(--brand-dark))] text-xs font-medium px-3 py-1 rounded-full border border-white"
+                    className="bg-white/70 text-[#3C096C] text-xs font-semibold px-3 py-1 rounded-full border border-white"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <p className="text-[hsl(var(--brand-muted))] text-sm leading-relaxed mb-6">
+              <p className="text-[#5A189A]/70 text-sm leading-relaxed mb-6">
                 {pet.desc}
               </p>
 
@@ -100,7 +100,7 @@ export default function Featured() {
                     className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 flex items-start gap-3 mb-5 border border-white"
                   >
                     <span className="text-xl">🐾</span>
-                    <p className="text-sm text-[hsl(var(--brand-dark))] italic">{pet.tip}</p>
+                    <p className="text-sm text-[#3C096C] italic">{pet.tip}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

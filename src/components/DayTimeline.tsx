@@ -78,11 +78,11 @@ export default function DayTimeline() {
   }, [scrollYProgress]);
 
   return (
-    <section ref={sectionRef} className="bg-[hsl(var(--brand-dark))] py-24 px-6 relative overflow-hidden">
+    <section ref={sectionRef} className="bg-[#3C096C] py-24 px-6 relative overflow-hidden">
       {/* Background texture */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,#D4845A,transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,#B5825A,transparent_40%)]" />
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(157,78,221,0.3),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,145,0,0.15),transparent_40%)]" />
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
@@ -93,7 +93,7 @@ export default function DayTimeline() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <p className="text-[#D4845A] text-sm font-semibold uppercase tracking-widest mb-4">Ежедневный ритм</p>
+          <p className="text-[#FFC880] text-sm font-semibold uppercase tracking-widest mb-4">Ежедневный ритм</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight text-balance">
             Забота становится частью дня,<br />
             <span className="text-white/50">а не списком тревог</span>
@@ -121,18 +121,18 @@ export default function DayTimeline() {
                 <div className="flex flex-col items-center gap-2">
                   <div
                     className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-                      active === i ? "bg-[#D4845A] shadow-lg shadow-[#D4845A]/30" : "bg-white/10"
+                      active === i ? "bg-[#FF9100] shadow-lg shadow-[#FF9100]/40" : "bg-white/10"
                     }`}
                   >
                     <Icon name={step.icon as "Sun"} size={18} className={active === i ? "text-white" : "text-white/50"} />
                   </div>
                   {i < steps.length - 1 && (
-                    <div className={`w-px flex-1 min-h-[16px] rounded-full transition-all duration-300 ${active > i ? "bg-[#D4845A]/60" : "bg-white/10"}`} />
+                    <div className={`w-px flex-1 min-h-[16px] rounded-full transition-all duration-300 ${active > i ? "bg-[#FF9100]/60" : "bg-white/10"}`} />
                   )}
                 </div>
 
                 <div className="pt-1">
-                  <p className={`text-xs font-semibold uppercase tracking-widest mb-1 transition-colors ${active === i ? "text-[#D4845A]" : "text-white/30"}`}>
+                  <p className={`text-xs font-semibold uppercase tracking-widest mb-1 transition-colors ${active === i ? "text-[#FFC880]" : "text-white/30"}`}>
                     {step.time}
                   </p>
                   <h3 className={`font-semibold text-base mb-1 transition-colors ${active === i ? "text-white" : "text-white/60"}`}>
@@ -163,11 +163,11 @@ export default function DayTimeline() {
             >
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <p className="text-[hsl(var(--brand-muted))] text-xs font-medium uppercase tracking-wide mb-1">{steps[active].screen.label}</p>
-                  <p className="text-[hsl(var(--brand-dark))] font-semibold">Персик, сегодня</p>
+                  <p className="text-[#5A189A]/60 text-xs font-medium uppercase tracking-wide mb-1">{steps[active].screen.label}</p>
+                  <p className="text-[#3C096C] font-semibold">Персик, сегодня</p>
                 </div>
-                <div className="w-10 h-10 rounded-xl bg-[hsl(var(--brand-warm))]/10 flex items-center justify-center">
-                  <Icon name={steps[active].icon as "Sun"} size={18} className="text-[hsl(var(--brand-warm))]" />
+                <div className="w-10 h-10 rounded-xl bg-[#FF9100]/10 flex items-center justify-center">
+                  <Icon name={steps[active].icon as "Sun"} size={18} className="text-[#FF9100]" />
                 </div>
               </div>
 
@@ -177,26 +177,26 @@ export default function DayTimeline() {
                     key={item.text}
                     className={`flex items-start gap-3 p-4 rounded-2xl border transition-all ${
                       item.done
-                        ? "bg-green-50 border-green-100"
+                        ? "bg-[#f0e8ff] border-[#9D4EDD]/20"
                         : "bg-[hsl(var(--background))] border-[hsl(var(--border))]"
                     }`}
                   >
-                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 ${item.done ? "bg-green-100" : "bg-[hsl(var(--muted))]"}`}>
-                      <Icon name={item.icon as "Utensils"} size={14} className={item.done ? "text-green-600" : "text-[hsl(var(--brand-muted))]"} />
+                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 ${item.done ? "bg-[#9D4EDD]/15" : "bg-[hsl(var(--muted))]"}`}>
+                      <Icon name={item.icon as "Utensils"} size={14} className={item.done ? "text-[#5A189A]" : "text-[#5A189A]/50"} />
                     </div>
                     <div className="flex-1">
-                      <p className={`text-sm font-medium ${item.done ? "text-green-800" : "text-[hsl(var(--brand-dark))]"}`}>{item.text}</p>
-                      <p className="text-xs text-[hsl(var(--brand-muted))] mt-0.5">{item.note}</p>
+                      <p className={`text-sm font-medium ${item.done ? "text-[#3C096C]" : "text-[#3C096C]"}`}>{item.text}</p>
+                      <p className="text-xs text-[#5A189A]/60 mt-0.5">{item.note}</p>
                     </div>
-                    {item.done && <Icon name="CheckCircle" size={16} className="text-green-500 flex-shrink-0 mt-0.5" />}
+                    {item.done && <Icon name="CheckCircle" size={16} className="text-[#9D4EDD] flex-shrink-0 mt-0.5" />}
                   </div>
                 ))}
               </div>
 
               {/* Pufych */}
-              <div className="mt-5 bg-[#D4845A]/8 border border-[#D4845A]/20 rounded-2xl p-4 flex items-center gap-3">
+              <div className="mt-5 bg-[#FF9100]/8 border border-[#FF9100]/25 rounded-2xl p-4 flex items-center gap-3">
                 <span className="text-xl">🐾</span>
-                <p className="text-sm text-[hsl(var(--brand-dark))]">
+                <p className="text-sm text-[#3C096C]">
                   {active === 0 && "Персик хорошо поел утром. Следующее кормление — в 19:00."}
                   {active === 1 && "Сегодня хороший день для 3-го урока. Займёт всего 10 минут!"}
                   {active === 2 && "Заметки о почёсывании уха я запомню. Если повторится — напомню проверить."}

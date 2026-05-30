@@ -70,9 +70,9 @@ const tabs = [
 ];
 
 const badgeColors: Record<string, string> = {
-  green: "bg-green-100 text-green-700",
-  blue: "bg-blue-100 text-blue-700",
-  orange: "bg-orange-100 text-orange-700",
+  green: "bg-[#9D4EDD]/10 text-[#5A189A]",
+  blue: "bg-[#3C096C]/10 text-[#3C096C]",
+  orange: "bg-[#FF9100]/15 text-[#c46f00]",
 };
 
 export default function Promo() {
@@ -89,23 +89,23 @@ export default function Promo() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <p className="text-[hsl(var(--brand-warm))] text-sm font-semibold uppercase tracking-widest mb-4">Возможности</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-[hsl(var(--brand-dark))] text-balance">
+          <p className="text-[#5A189A] text-sm font-semibold uppercase tracking-widest mb-4">Возможности</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#3C096C] text-balance">
             Всё важное — в одном спокойном пространстве
           </h2>
         </motion.div>
 
         {/* Tabs */}
         <div className="flex justify-center mb-10">
-          <div className="bg-[hsl(var(--muted))] rounded-2xl p-1.5 flex gap-1 flex-wrap justify-center">
+          <div className="bg-[#f0e8ff] rounded-2xl p-1.5 flex gap-1 flex-wrap justify-center">
             {tabs.map((t) => (
               <button
                 key={t.id}
                 onClick={() => setActiveTab(t.id)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
                   activeTab === t.id
-                    ? "bg-white text-[hsl(var(--brand-dark))] shadow-sm"
-                    : "text-[hsl(var(--brand-muted))] hover:text-[hsl(var(--brand-dark))]"
+                    ? "bg-[#5A189A] text-white shadow-md shadow-[#5A189A]/30"
+                    : "text-[#5A189A]/70 hover:text-[#3C096C]"
                 }`}
               >
                 <Icon name={t.icon as "Utensils"} size={15} />
@@ -127,16 +127,16 @@ export default function Promo() {
           >
             {/* Text */}
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-[hsl(var(--brand-warm))]/10 flex items-center justify-center mb-6">
-                <Icon name={tab.icon as "Utensils"} size={22} className="text-[hsl(var(--brand-warm))]" />
+              <div className="w-12 h-12 rounded-2xl bg-[#FF9100]/10 flex items-center justify-center mb-6">
+                <Icon name={tab.icon as "Utensils"} size={22} className="text-[#FF9100]" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-[hsl(var(--brand-dark))] mb-4 leading-tight">
+              <h3 className="text-2xl md:text-3xl font-bold text-[#3C096C] mb-4 leading-tight">
                 {tab.title}
               </h3>
-              <p className="text-[hsl(var(--brand-muted))] text-lg leading-relaxed mb-8">
+              <p className="text-[#5A189A]/70 text-lg leading-relaxed mb-8">
                 {tab.desc}
               </p>
-              <button className="bg-[hsl(var(--brand-dark))] text-white font-medium px-7 py-3.5 rounded-2xl hover:bg-[hsl(var(--brand-warm))] transition-all duration-300 hover:shadow-lg">
+              <button className="bg-[#5A189A] text-white font-semibold px-7 py-3.5 rounded-2xl hover:bg-[#FF9100] transition-all duration-300 hover:shadow-lg hover:shadow-orange-400/30">
                 Попробовать
               </button>
             </div>
@@ -146,11 +146,11 @@ export default function Promo() {
               <div className="bg-white rounded-3xl p-6 shadow-xl border border-[hsl(var(--border))]">
                 <div className="flex items-center justify-between mb-5">
                   <div>
-                    <p className="text-[hsl(var(--brand-muted))] text-xs uppercase tracking-wide mb-1">{tab.screen.header}</p>
-                    <p className="text-[hsl(var(--brand-dark))] font-semibold text-sm">{tab.screen.pet}</p>
+                    <p className="text-[#5A189A]/60 text-xs uppercase tracking-wide mb-1">{tab.screen.header}</p>
+                    <p className="text-[#3C096C] font-semibold text-sm">{tab.screen.pet}</p>
                   </div>
-                  <div className="w-9 h-9 rounded-xl bg-[hsl(var(--brand-warm))]/10 flex items-center justify-center">
-                    <Icon name={tab.icon as "Utensils"} size={16} className="text-[hsl(var(--brand-warm))]" />
+                  <div className="w-9 h-9 rounded-xl bg-[#FF9100]/10 flex items-center justify-center">
+                    <Icon name={tab.icon as "Utensils"} size={16} className="text-[#FF9100]" />
                   </div>
                 </div>
 
@@ -161,8 +161,8 @@ export default function Promo() {
                       className="flex items-center justify-between p-4 bg-[hsl(var(--background))] rounded-2xl border border-[hsl(var(--border))]"
                     >
                       <div>
-                        <p className="text-xs text-[hsl(var(--brand-muted))] mb-0.5">{item.label}</p>
-                        <p className="text-[hsl(var(--brand-dark))] font-semibold text-sm">{item.value}</p>
+                        <p className="text-xs text-[#5A189A]/60 mb-0.5">{item.label}</p>
+                        <p className="text-[#3C096C] font-semibold text-sm">{item.value}</p>
                       </div>
                       <span className={`text-xs font-medium px-3 py-1 rounded-full ${badgeColors[item.color]}`}>
                         {item.badge}
@@ -171,9 +171,9 @@ export default function Promo() {
                   ))}
                 </div>
 
-                <div className="mt-5 bg-[#D4845A]/8 border border-[#D4845A]/20 rounded-2xl p-3 flex items-center gap-3">
+                <div className="mt-5 bg-[#FF9100]/8 border border-[#FF9100]/25 rounded-2xl p-3 flex items-center gap-3">
                   <span className="text-lg">🐾</span>
-                  <p className="text-xs text-[hsl(var(--brand-dark))]">
+                  <p className="text-xs text-[#3C096C]">
                     {activeTab === "nutrition" && "Этот корм подходит стерилизованным кошкам 1–7 лет."}
                     {activeTab === "health" && "Запишу напоминание о прививке за 3 дня — 2 июня."}
                     {activeTab === "behavior" && "Отличный прогресс! Барсик учится быстрее среднего."}
@@ -181,7 +181,7 @@ export default function Promo() {
                   </p>
                 </div>
               </div>
-              <div className="absolute -inset-3 bg-[hsl(var(--brand-warm))]/5 rounded-[2rem] blur-2xl -z-10" />
+              <div className="absolute -inset-3 bg-[#9D4EDD]/10 rounded-[2rem] blur-2xl -z-10" />
             </div>
           </motion.div>
         </AnimatePresence>

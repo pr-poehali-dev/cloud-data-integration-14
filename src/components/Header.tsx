@@ -17,14 +17,14 @@ export default function Header() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-all duration-500 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-xl border-b border-[hsl(var(--border))] shadow-sm"
+          ? "bg-white/90 backdrop-blur-xl border-b border-purple-100 shadow-sm shadow-purple-100/50"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto flex justify-between items-center">
-        <div className={`font-semibold text-lg tracking-tight transition-colors duration-500 ${scrolled ? "text-[hsl(var(--brand-dark))]" : "text-white"}`}>
-          <span className="font-bold">Питомец</span>
-          <span className="text-[hsl(var(--brand-warm))]">Плюс</span>
+        <div className={`font-extrabold text-lg tracking-tight transition-colors duration-500 ${scrolled ? "text-[#3C096C]" : "text-white"}`}>
+          <span>ПИТОМЕЦ</span>
+          <span className="text-[#FF9100]">ПЛЮС</span>
         </div>
         <nav className="hidden md:flex gap-8 items-center">
           {[
@@ -35,9 +35,9 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors duration-300 ${
+              className={`text-sm font-semibold transition-colors duration-300 ${
                 scrolled
-                  ? "text-[hsl(var(--brand-dark))] hover:text-[hsl(var(--brand-warm))]"
+                  ? "text-[#3C096C] hover:text-[#5A189A]"
                   : "text-white/80 hover:text-white"
               }`}
             >
@@ -46,7 +46,7 @@ export default function Header() {
           ))}
           <a
             href="#start"
-            className="bg-[hsl(var(--brand-warm))] text-white text-sm font-medium px-5 py-2 rounded-full hover:opacity-90 transition-opacity"
+            className="bg-[#FF9100] text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-[#e07f00] transition-all duration-300 hover:shadow-lg hover:shadow-orange-400/30"
           >
             Начать
           </a>

@@ -41,24 +41,24 @@ export default function Personalization() {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <p className="text-[hsl(var(--brand-warm))] text-sm font-semibold uppercase tracking-widest mb-4">Персонализация</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-[hsl(var(--brand-dark))] text-balance">
+          <p className="text-[#5A189A] text-sm font-semibold uppercase tracking-widest mb-4">Персонализация</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#3C096C] text-balance">
             Рекомендации не общие.{" "}
-            <span className="text-[hsl(var(--brand-muted))]">Они про вашего питомца.</span>
+            <span className="text-[#9D4EDD]">Они про вашего питомца.</span>
           </h2>
         </motion.div>
 
         {/* Toggle */}
         <div className="flex justify-center mb-12">
-          <div className="bg-[hsl(var(--muted))] rounded-2xl p-1.5 flex gap-1">
+          <div className="bg-[#f0e8ff] rounded-2xl p-1.5 flex gap-1">
             {(["cat", "dog"] as const).map((type) => (
               <button
                 key={type}
                 onClick={() => setPetType(type)}
                 className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
                   petType === type
-                    ? "bg-white text-[hsl(var(--brand-dark))] shadow-sm"
-                    : "text-[hsl(var(--brand-muted))] hover:text-[hsl(var(--brand-dark))]"
+                    ? "bg-[#5A189A] text-white shadow-md shadow-[#5A189A]/30"
+                    : "text-[#5A189A]/70 hover:text-[#3C096C]"
                 }`}
               >
                 <span>{type === "cat" ? "🐱" : "🐶"}</span>
@@ -78,25 +78,25 @@ export default function Personalization() {
             className="grid lg:grid-cols-3 gap-6"
           >
             {/* Profile card */}
-            <div className="lg:col-span-1 bg-white rounded-3xl p-6 border border-[hsl(var(--border))] shadow-md">
+            <div className="lg:col-span-1 bg-white rounded-3xl p-6 border border-purple-100 shadow-md shadow-purple-100/50">
               <div className="text-5xl mb-4">{p.emoji}</div>
-              <h3 className="text-2xl font-bold text-[hsl(var(--brand-dark))] mb-1">{p.name}</h3>
-              <p className="text-[hsl(var(--brand-muted))] text-sm mb-5">{p.breed}</p>
+              <h3 className="text-2xl font-bold text-[#3C096C] mb-1">{p.name}</h3>
+              <p className="text-[#9D4EDD] text-sm mb-5">{p.breed}</p>
 
               <div className="flex flex-col gap-3 mb-5">
-                <div className="flex justify-between items-center py-2 border-b border-[hsl(var(--border))]">
-                  <span className="text-[hsl(var(--brand-muted))] text-sm">Возраст</span>
-                  <span className="text-[hsl(var(--brand-dark))] font-semibold text-sm">{p.age}</span>
+                <div className="flex justify-between items-center py-2 border-b border-purple-100">
+                  <span className="text-[#5A189A]/60 text-sm">Возраст</span>
+                  <span className="text-[#3C096C] font-semibold text-sm">{p.age}</span>
                 </div>
-                <div className="flex justify-between items-center py-2 border-b border-[hsl(var(--border))]">
-                  <span className="text-[hsl(var(--brand-muted))] text-sm">Вес</span>
-                  <span className="text-[hsl(var(--brand-dark))] font-semibold text-sm">{p.weight}</span>
+                <div className="flex justify-between items-center py-2 border-b border-purple-100">
+                  <span className="text-[#5A189A]/60 text-sm">Вес</span>
+                  <span className="text-[#3C096C] font-semibold text-sm">{p.weight}</span>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-2">
                 {p.traits.map((t) => (
-                  <span key={t} className="bg-[hsl(var(--muted))] text-[hsl(var(--brand-dark))] text-xs font-medium px-3 py-1 rounded-full">
+                  <span key={t} className="bg-[#f0e8ff] text-[#5A189A] text-xs font-semibold px-3 py-1 rounded-full">
                     {t}
                   </span>
                 ))}
@@ -106,40 +106,40 @@ export default function Personalization() {
             {/* Info cards */}
             <div className="lg:col-span-2 flex flex-col gap-4">
               {/* Рацион */}
-              <div className="bg-white rounded-3xl p-5 border border-[hsl(var(--border))] shadow-sm">
+              <div className="bg-white rounded-3xl p-5 border border-purple-100 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-9 h-9 rounded-xl bg-orange-50 flex items-center justify-center">
-                    <Icon name="Utensils" size={16} className="text-orange-500" />
+                  <div className="w-9 h-9 rounded-xl bg-[#FF9100]/10 flex items-center justify-center">
+                    <Icon name="Utensils" size={16} className="text-[#FF9100]" />
                   </div>
-                  <p className="font-semibold text-[hsl(var(--brand-dark))]">Рацион</p>
+                  <p className="font-semibold text-[#3C096C]">Рацион</p>
                 </div>
-                <p className="text-[hsl(var(--brand-dark))] text-sm font-medium">{p.diet}</p>
+                <p className="text-[#3C096C] text-sm font-medium">{p.diet}</p>
               </div>
 
               {/* Напоминания */}
-              <div className="bg-white rounded-3xl p-5 border border-[hsl(var(--border))] shadow-sm">
+              <div className="bg-white rounded-3xl p-5 border border-purple-100 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center">
-                    <Icon name="Bell" size={16} className="text-blue-500" />
+                  <div className="w-9 h-9 rounded-xl bg-[#9D4EDD]/10 flex items-center justify-center">
+                    <Icon name="Bell" size={16} className="text-[#9D4EDD]" />
                   </div>
-                  <p className="font-semibold text-[hsl(var(--brand-dark))]">Напоминания</p>
+                  <p className="font-semibold text-[#3C096C]">Напоминания</p>
                 </div>
                 <div className="flex flex-col gap-2">
                   {p.reminders.map((r) => (
                     <div key={r} className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--brand-warm))]" />
-                      <p className="text-[hsl(var(--brand-dark))] text-sm">{r}</p>
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#FF9100]" />
+                      <p className="text-[#3C096C] text-sm">{r}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Пуфыч совет */}
-              <div className="bg-[#D4845A]/8 border border-[#D4845A]/20 rounded-3xl p-5 flex items-start gap-4">
+              <div className="bg-[#FF9100]/8 border border-[#FF9100]/25 rounded-3xl p-5 flex items-start gap-4">
                 <span className="text-2xl">🐾</span>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-[#D4845A] mb-1">Совет Пуфыча</p>
-                  <p className="text-[hsl(var(--brand-dark))] text-sm leading-relaxed">{p.tip}</p>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[#FF9100] mb-1">Совет Пуфыча</p>
+                  <p className="text-[#3C096C] text-sm leading-relaxed">{p.tip}</p>
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,42 +6,49 @@
 
 @layer base {
   :root {
-    --background: 36 33% 97%;
-    --foreground: 220 20% 16%;
+    /* ПитомецПлюс Brand Palette */
+    /* #FF9100 Princeton Orange — CTA primary */
+    /* #FFC880 Sunset — Пуфыч, secondary */
+    /* #9D4EDD Amethyst — medium violet */
+    /* #5A189A Tekhelet — brand primary purple */
+    /* #3C096C Persian Indigo — dark bg, hero */
+
+    --background: 270 50% 98%;
+    --foreground: 270 80% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 16%;
+    --card-foreground: 270 80% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 16%;
+    --popover-foreground: 270 80% 10%;
 
-    --primary: 24 60% 42%;
-    --primary-foreground: 36 33% 97%;
+    --primary: 273 73% 33%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 36 30% 94%;
-    --secondary-foreground: 220 20% 16%;
+    --secondary: 277 70% 60%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 36 20% 92%;
-    --muted-foreground: 220 10% 50%;
+    --muted: 270 30% 94%;
+    --muted-foreground: 270 25% 48%;
 
-    --accent: 24 60% 42%;
-    --accent-foreground: 36 33% 97%;
+    --accent: 33 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 36 20% 88%;
-    --input: 36 20% 88%;
-    --ring: 24 60% 42%;
+    --border: 270 25% 88%;
+    --input: 270 25% 88%;
+    --ring: 273 73% 33%;
 
     --radius: 1rem;
 
-    /* Brand */
-    --brand-warm: 24 60% 42%;
-    --brand-cream: 36 33% 97%;
-    --brand-sand: 36 30% 90%;
-    --brand-dark: 220 20% 16%;
-    --brand-muted: 220 10% 50%;
+    /* Brand tokens */
+    --brand-orange: #ff9100;
+    --brand-orange-light: #ffc880;
+    --brand-violet: #9d4edd;
+    --brand-purple: #5a189a;
+    --brand-indigo: #3c096c;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -62,10 +69,10 @@
   body {
     @apply bg-background text-foreground;
     font-family:
+      "Manrope",
       "Inter",
       system-ui,
       -apple-system,
-      BlinkMacSystemFont,
       sans-serif;
     -webkit-font-smoothing: antialiased;
   }
@@ -73,7 +80,8 @@
   h1,
   h2,
   h3 {
-    font-family: "Playfair Display", Georgia, serif;
+    font-family: "Manrope", "Inter", system-ui, sans-serif;
+    font-weight: 800;
   }
 }
 

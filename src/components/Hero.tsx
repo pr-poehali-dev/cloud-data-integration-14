@@ -29,9 +29,9 @@ export default function Hero() {
         style={{ y: bgY }}
         className="absolute inset-0 w-full h-[120%]"
       >
-        <div className="w-full h-full bg-gradient-to-br from-[#2C1810] via-[#4A2C1A] to-[#1A1A2E]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(180,100,40,0.3),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_20%,rgba(255,200,100,0.15),transparent_50%)]" />
+        <div className="w-full h-full bg-gradient-to-br from-[#3C096C] via-[#5A189A] to-[#3C096C]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(157,78,221,0.4),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_20%,rgba(255,145,0,0.2),transparent_50%)]" />
       </motion.div>
 
       {/* Pufych mascot hint */}
@@ -73,7 +73,7 @@ export default function Hero() {
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 text-balance"
             >
               Забота о питомце,{" "}
-              <span className="text-[#D4845A]">в которой всё понятно</span>
+              <span className="text-[#FFC880]">в которой всё понятно</span>
             </motion.h1>
 
             <motion.p
@@ -91,7 +91,7 @@ export default function Hero() {
               transition={{ delay: 0.65, duration: 0.6 }}
               className="flex flex-wrap gap-4"
             >
-              <button className="bg-[#D4845A] hover:bg-[#C07040] text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#D4845A]/30">
+              <button className="bg-[#FF9100] hover:bg-[#e07f00] text-white font-bold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#FF9100]/40">
                 Начать с питомца
               </button>
               <button className="border border-white/30 text-white/90 hover:bg-white/10 font-medium px-8 py-4 rounded-2xl transition-all duration-300 backdrop-blur-sm">
@@ -114,7 +114,7 @@ export default function Hero() {
                   <p className="text-white/50 text-xs font-medium uppercase tracking-wide mb-1">Мой питомец</p>
                   <p className="text-white font-semibold text-lg">Персик, 3 года 🐱</p>
                 </div>
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-400 to-amber-300 flex items-center justify-center text-2xl shadow-lg">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FF9100] to-[#FFC880] flex items-center justify-center text-2xl shadow-lg">
                   🐱
                 </div>
               </div>
@@ -143,7 +143,7 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2 }}
-                className="bg-[#D4845A]/20 border border-[#D4845A]/30 rounded-2xl p-3 flex items-start gap-3"
+                className="bg-[#FF9100]/15 border border-[#FF9100]/30 rounded-2xl p-3 flex items-start gap-3"
               >
                 <span className="text-xl">🐾</span>
                 <div>
@@ -154,7 +154,7 @@ export default function Hero() {
             </div>
 
             {/* Floating glow */}
-            <div className="absolute -inset-4 bg-[#D4845A]/10 rounded-[2rem] blur-2xl -z-10" />
+            <div className="absolute -inset-4 bg-[#9D4EDD]/20 rounded-[2rem] blur-2xl -z-10" />
           </motion.div>
         </div>
       </motion.div>
