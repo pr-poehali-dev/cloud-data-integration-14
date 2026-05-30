@@ -1,65 +1,97 @@
+import { motion } from "framer-motion";
+
 export default function Footer() {
   return (
-    <div
-      className="relative h-[400px] sm:h-[600px] lg:h-[800px] max-h-[800px]"
-      style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
-    >
-      <div className="relative h-[calc(100vh+400px)] sm:h-[calc(100vh+600px)] lg:h-[calc(100vh+800px)] -top-[100vh]">
-        <div className="h-[400px] sm:h-[600px] lg:h-[800px] sticky top-[calc(100vh-400px)] sm:top-[calc(100vh-600px)] lg:top-[calc(100vh-800px)]">
-          <div className="bg-neutral-900 py-4 sm:py-6 lg:py-8 px-4 sm:px-6 h-full w-full flex flex-col justify-between">
-            <div className="flex shrink-0 gap-8 sm:gap-12 lg:gap-20">
-              <div className="flex flex-col gap-1 sm:gap-2">
-                <h3 className="mb-1 sm:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">О нас</h3>
-                <a
-                  href="#projects"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
+    <>
+      {/* Северус - editorial блок */}
+      <section id="story" className="bg-[hsl(var(--brand-dark))] py-24 px-6">
+        <div className="max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <p className="text-[#D4845A] text-sm font-semibold uppercase tracking-widest mb-8">История</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
+              Всё началось с Северуса.
+            </h2>
+            <p className="text-white/60 text-xl leading-relaxed mb-8">
+              Северус помог понять: забота о питомце состоит из маленьких решений каждый день — чем кормить, когда заметить изменения, как не забыть важное и где найти спокойный ответ. Так появилась идея сервиса, который помогает заботиться осознанно.
+            </p>
+            <div className="w-12 h-px bg-white/20 mb-8" />
+            <p className="text-white/40 text-base italic">
+              Северус — причина, почему мы начали.{" "}
+              <span className="text-[#D4845A] not-italic font-medium">Пуфыч — помощник, который ведёт вас дальше.</span>
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Финальный CTA + Footer */}
+      <div
+        id="start"
+        className="relative"
+        style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+      >
+        <div className="relative h-[calc(100vh+640px)] -top-[100vh]">
+          <div className="h-[640px] sticky top-[calc(100vh-640px)]">
+            <div className="bg-[#FAF7F2] h-full w-full flex flex-col">
+              {/* CTA */}
+              <div className="flex-1 flex flex-col items-center justify-center px-6 py-16 text-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7 }}
                 >
-                  Проекты
-                </a>
-                <a
-                  href="#mission"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Миссия
-                </a>
-                <a
-                  href="#contact"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Связаться
-                </a>
+                  <span className="text-5xl mb-6 block">🐾</span>
+                  <h2 className="text-4xl md:text-5xl font-bold text-[hsl(var(--brand-dark))] mb-5 text-balance">
+                    Начните с одного простого шага.
+                  </h2>
+                  <p className="text-[hsl(var(--brand-muted))] text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+                    Создайте профиль питомца, а Пуфыч подскажет, с чего начать: питание, здоровье, поведение или покупки.
+                  </p>
+                  <div className="flex flex-wrap gap-4 justify-center">
+                    <button className="bg-[hsl(var(--brand-warm))] text-white font-semibold px-8 py-4 rounded-2xl hover:opacity-90 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#D4845A]/20 text-base">
+                      Создать профиль питомца
+                    </button>
+                    <button className="border-2 border-[hsl(var(--border))] text-[hsl(var(--brand-dark))] font-medium px-8 py-4 rounded-2xl hover:border-[hsl(var(--brand-warm))] hover:text-[hsl(var(--brand-warm))] transition-all duration-300 text-base">
+                      Посмотреть возможности
+                    </button>
+                  </div>
+                </motion.div>
               </div>
-              <div className="flex flex-col gap-1 sm:gap-2">
-                <h3 className="mb-1 sm:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">Обучение</h3>
-                <a
-                  href="#news"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Новости
-                </a>
-                <a
-                  href="#learn"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Курсы
-                </a>
-                <a
-                  href="#publications"
-                  className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base"
-                >
-                  Статьи
-                </a>
+
+              {/* Footer bottom */}
+              <div className="bg-[hsl(var(--brand-dark))] py-6 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="flex gap-8">
+                  {[
+                    { label: "Сервис", links: ["Питание", "Здоровье", "Поведение", "Магазин"] },
+                    { label: "Компания", links: ["О нас", "История", "Поддержка"] },
+                  ].map((col) => (
+                    <div key={col.label} className="flex flex-col gap-1">
+                      <p className="text-white/30 text-xs uppercase tracking-widest mb-2">{col.label}</p>
+                      {col.links.map((link) => (
+                        <a key={link} href="#" className="text-white/60 hover:text-white text-sm transition-colors">
+                          {link}
+                        </a>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="text-right">
+                  <p className="text-[3.5rem] md:text-[5rem] font-bold text-white/10 leading-none tracking-tight select-none">
+                    ПИТОМЕЦ+
+                  </p>
+                  <p className="text-white/30 text-xs mt-1">© {new Date().getFullYear()} ПитомецПлюс</p>
+                </div>
               </div>
-            </div>
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0">
-              <h1 className="text-[18vw] sm:text-[16vw] lg:text-[14vw] leading-[0.8] mt-4 sm:mt-6 lg:mt-10 text-white font-bold tracking-tight">
-                LUMINO
-              </h1>
-              <p className="text-white text-sm sm:text-base">{new Date().getFullYear()} Lumino</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
