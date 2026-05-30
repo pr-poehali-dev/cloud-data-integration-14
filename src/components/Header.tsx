@@ -26,11 +26,11 @@ export default function Header() {
           <span>ПИТОМЕЦ</span>
           <span className="text-[#FF9100]">ПЛЮС</span>
         </div>
-        <nav className="hidden md:flex gap-8 items-center">
+        <nav className="hidden md:flex gap-6 items-center">
           {[
-            { label: "Возможности", href: "#features" },
+            { label: "Подбор корма", href: "#food" },
             { label: "Магазин", href: "#shop" },
-            { label: "О нас", href: "#story" },
+            { label: "Курсы", href: "#courses" },
           ].map((link) => (
             <a
               key={link.href}
@@ -45,10 +45,10 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="#start"
+            href="#food"
             className="bg-[#FF9100] text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-[#e07f00] transition-all duration-300 hover:shadow-lg hover:shadow-orange-400/30"
           >
-            Начать
+            Подобрать корм
           </a>
         </nav>
       </div>

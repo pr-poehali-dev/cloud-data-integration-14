@@ -1,163 +1,155 @@
-import { useScroll, useTransform, motion } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Icon from "@/components/ui/icon";
 
-const mockItems = [
-  { icon: "Utensils", label: "Кормление сегодня", value: "в 19:00", color: "bg-orange-50 text-orange-600" },
-  { icon: "Syringe", label: "Прививка через", value: "6 дней", color: "bg-blue-50 text-blue-600" },
-  { icon: "ShoppingBag", label: "Корм подобран", value: "Royal Canin", color: "bg-green-50 text-green-600" },
-  { icon: "Activity", label: "Активность", value: "в норме", color: "bg-purple-50 text-purple-600" },
+const directions = [
+  {
+    icon: "Wheat",
+    label: "Подбор корма",
+    desc: "Подберём по возрасту, весу и особенностям",
+    color: "bg-[#FF9100]/15 text-[#FF9100]",
+    href: "#food",
+  },
+  {
+    icon: "ShoppingBag",
+    label: "Магазин",
+    desc: "Корма, аксессуары, наполнители",
+    color: "bg-[#9D4EDD]/15 text-[#9D4EDD]",
+    href: "#shop",
+  },
+  {
+    icon: "BookOpen",
+    label: "Курсы поведения",
+    desc: "Лай, тревога, агрессия, туалет",
+    color: "bg-[#FFC880]/25 text-[#c46f00]",
+    href: "#courses",
+  },
 ];
 
 export default function Hero() {
-  const container = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end start"],
-  });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-
   return (
-    <div
-      ref={container}
-      className="relative flex items-center justify-center min-h-screen overflow-hidden"
-    >
-      {/* Background gradient */}
-      <motion.div
-        style={{ y: bgY }}
-        className="absolute inset-0 w-full h-[120%]"
-      >
+    <div className="relative flex items-center justify-center min-h-screen overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
         <div className="w-full h-full bg-gradient-to-br from-[#3C096C] via-[#5A189A] to-[#3C096C]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(157,78,221,0.4),transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_20%,rgba(255,145,0,0.2),transparent_50%)]" />
-      </motion.div>
+      </div>
 
-      {/* Pufych mascot hint */}
+      {/* Scroll cue */}
       <motion.div
-        style={{ opacity }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        >
-          <Icon name="ChevronDown" size={20} className="text-white/50" />
-        </motion.div>
+        <Icon name="ChevronDown" size={22} className="text-white/30" />
       </motion.div>
 
       {/* Content */}
-      <motion.div
-        style={{ y: textY, opacity }}
-        className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-20 pb-16"
-      >
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left: text */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 pt-24 pb-16">
+        <div className="grid lg:grid-cols-2 gap-14 items-center">
+
+          {/* Left */}
           <div>
-            {/* Пуфыч badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8"
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-7"
             >
-              <span className="text-lg">🐾</span>
+              <span className="text-base">🐾</span>
               <span className="text-white/80 text-sm font-medium">Привет, я Пуфыч — ваш помощник</span>
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.7 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 text-balance"
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-4xl md:text-5xl lg:text-[3.2rem] font-extrabold text-white leading-[1.1] mb-5 text-balance"
             >
-              Забота о питомце,{" "}
-              <span className="text-[#FFC880]">в которой всё понятно</span>
+              Подберите корм, покупки и помощь для питомца{" "}
+              <span className="text-[#FFC880]">в одном сервисе</span>
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="text-white/70 text-lg leading-relaxed mb-10 max-w-lg"
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-white/65 text-lg leading-relaxed mb-9 max-w-md"
             >
-              Подберите корм, следите за здоровьем, получайте напоминания и рекомендации — в одном спокойном сервисе для кошек и собак.
+              ПитомецПлюс помогает подобрать корм, купить нужные товары и пройти курсы коррекции поведения для кошек и собак.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.65, duration: 0.6 }}
-              className="flex flex-wrap gap-4"
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="flex flex-wrap gap-3"
             >
-              <button className="bg-[#FF9100] hover:bg-[#e07f00] text-white font-bold px-8 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#FF9100]/40">
-                Начать с питомца
-              </button>
-              <button className="border border-white/30 text-white/90 hover:bg-white/10 font-medium px-8 py-4 rounded-2xl transition-all duration-300 backdrop-blur-sm">
-                Посмотреть, как работает
-              </button>
+              <a
+                href="#food"
+                className="bg-[#FF9100] hover:bg-[#e07f00] text-white font-bold px-7 py-3.5 rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#FF9100]/30 text-base"
+              >
+                Подобрать корм
+              </a>
+              <a
+                href="#shop"
+                className="bg-white/10 hover:bg-white/20 border border-white/25 text-white font-semibold px-6 py-3.5 rounded-2xl transition-all duration-300 text-base backdrop-blur-sm"
+              >
+                В магазин
+              </a>
+              <a
+                href="#courses"
+                className="bg-white/10 hover:bg-white/20 border border-white/25 text-white font-semibold px-6 py-3.5 rounded-2xl transition-all duration-300 text-base backdrop-blur-sm"
+              >
+                Курсы поведения
+              </a>
             </motion.div>
           </div>
 
-          {/* Right: product panel */}
+          {/* Right — product panel */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 32 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            transition={{ delay: 0.35, duration: 0.7 }}
             className="relative"
           >
             <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 shadow-2xl">
-              {/* Header */}
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <p className="text-white/50 text-xs font-medium uppercase tracking-wide mb-1">Мой питомец</p>
-                  <p className="text-white font-semibold text-lg">Персик, 3 года 🐱</p>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#FF9100] to-[#FFC880] flex items-center justify-center text-xl shadow-lg">
+                  🐾
                 </div>
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FF9100] to-[#FFC880] flex items-center justify-center text-2xl shadow-lg">
-                  🐱
+                <div>
+                  <p className="text-white/50 text-xs font-semibold uppercase tracking-wide">Пуфыч</p>
+                  <p className="text-white font-bold">С чего начнём?</p>
                 </div>
               </div>
 
-              {/* Mock items */}
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                {mockItems.map((item, i) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7 + i * 0.1 }}
-                    className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 border border-white/10 hover:border-white/30 transition-all duration-300 cursor-default group"
+              <div className="flex flex-col gap-3">
+                {directions.map((d, i) => (
+                  <motion.a
+                    key={d.label}
+                    href={d.href}
+                    initial={{ opacity: 0, x: 16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.5 + i * 0.1 }}
+                    className="flex items-center gap-4 bg-white/8 hover:bg-white/15 border border-white/10 hover:border-white/25 rounded-2xl p-4 transition-all duration-300 cursor-pointer group"
                   >
-                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center mb-2 ${item.color} bg-opacity-20`}>
-                      <Icon name={item.icon as "Utensils"} size={14} className="opacity-80" />
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${d.color}`}>
+                      <Icon name={d.icon as "Wheat"} size={18} />
                     </div>
-                    <p className="text-white/50 text-[10px] font-medium">{item.label}</p>
-                    <p className="text-white text-sm font-semibold">{item.value}</p>
-                  </motion.div>
+                    <div className="flex-1">
+                      <p className="text-white font-semibold text-sm">{d.label}</p>
+                      <p className="text-white/50 text-xs mt-0.5">{d.desc}</p>
+                    </div>
+                    <Icon name="ChevronRight" size={16} className="text-white/30 group-hover:text-white/60 transition-colors" />
+                  </motion.a>
                 ))}
               </div>
-
-              {/* Pufych tip */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.2 }}
-                className="bg-[#FF9100]/15 border border-[#FF9100]/30 rounded-2xl p-3 flex items-start gap-3"
-              >
-                <span className="text-xl">🐾</span>
-                <div>
-                  <p className="text-white/50 text-[10px] font-medium uppercase tracking-wide mb-0.5">Совет Пуфыча</p>
-                  <p className="text-white/90 text-sm">Персику пора обновить корм — он перешёл во взрослый возраст!</p>
-                </div>
-              </motion.div>
             </div>
-
-            {/* Floating glow */}
-            <div className="absolute -inset-4 bg-[#9D4EDD]/20 rounded-[2rem] blur-2xl -z-10" />
+            <div className="absolute -inset-4 bg-[#9D4EDD]/15 rounded-[2rem] blur-2xl -z-10" />
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
